@@ -1,0 +1,48 @@
+<div class="container">
+  <h3>Create Room</h3>
+
+  <div class="card">
+    <div class="card-body">
+  <form (ngSubmit)="onSubmit()" #roomForm="ngForm">
+    <div class="form-group">
+      <label for="name">name</label>
+      <input type="text" class="form-control" required [(ngModel)]="room.name" name="name" #rName="ngModel" [ngClass]="{'is-invalid': rName.invalid}">
+      <div class="invalid-feedback">
+          <span>Campo obrigatório</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">date</label>
+      <input type="text" class="form-control" required [(ngModel)]="room.date" name="date"  #rDate="ngModel" [ngClass]="{'is-invalid': rDate.invalid}">
+      <div class="invalid-feedback">
+          <span>Campo obrigatório</span>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">startHour</label>
+      <input type="text" class="form-control"  #rStart="ngModel" [ngClass]="{'is-invalid': rStart.invalid}" required [(ngModel)]="room.startHour" name="startHour">
+      <div class="invalid-feedback">
+        <span>Campo obrigatório</span>
+    </div>
+    </div>
+
+    <div class="form-group">
+      <label for="name">endHour</label>
+      <input type="text" class="form-control" required [(ngModel)]="room.endHour" name="endHour"  #rEnd="ngModel" [ngClass]="{'is-invalid': rEnd.invalid}">
+      <div class="invalid-feedback">
+        <span>Campo obrigatório</span>
+    </div>
+    </div>
+
+    <button class="btn btn-primary mt-3" [disabled]="roomForm.invalid">Submit</button>
+
+  </form>
+</div>
+</div>
+
+<div [hidden]="!submitted">
+  <button class="btn btn-success mt-3" (click)="newRoom()">Add</button>
+</div>
+

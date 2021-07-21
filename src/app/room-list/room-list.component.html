@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>Room list</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>date</th>
+            <th>startHour</th>
+            <th>endHour</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let r of rooms">
+            <td>{{r.name}}</td>
+            <td>{{r.date}}</td>
+            <td>{{r.startHour}}</td>
+            <td>{{r.endHour}}</td>
+            <td>
+
+
+              <button class="btn btn-success me-3" routerLink="/details/{{r.id}}">Detail</button>
+              <button class="btn btn-warning me-3" routerLink="/update/{{r.id}}">Update</button>
+              <button class="btn btn-danger " (click)="deleteRoom(r.id)">Delete</button>
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
